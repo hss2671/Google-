@@ -3,7 +3,7 @@ export default {
     const _url = new URL(request.url);
     _url.hostname = _url.pathname.startsWith("/gh/")
       ? "google.com"
-      : "www.baidu.com";
+      : "google.com";
     const req = new Request(_url, request);
     return fetch(req);
   },
