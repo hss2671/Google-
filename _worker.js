@@ -1,11 +1,10 @@
 export default {
   async fetch(request, env) {
-    let url = new URL(request.url);
-    if (url.pathname.startsWith('/')) {
-      url.hostname = 'google.com'
-      let new_request = new Request(url, request);
-      return fetch(new_request);
-    }
-    return env.ASSETS.fetch(request);
+    const _url = new URL(request.url);
+    _url.hostname = _url.pathname.startsWith("/gh/")
+      ? "g.2671.us.kg"
+      : "google.com";
+    const req = new Request(_url, request);
+    return fetch(req);
   },
 };
